@@ -3,37 +3,178 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Hola, mundo</title>
+    <meta name="description" content="El cuaderno digital de Carlos Claros: viajes, ideas, música, arte y diseño.">
+    <title>Carlos Claros — Observando el mundo</title>
     <style>
+      @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap");
+
       :root {
-        color-scheme: light dark;
-        font-family: system-ui, sans-serif;
+        --ink: #1e211c;
+        --muted: #696b62;
+        --paper: #f3efe5;
+        --paper-deep: #e8e0d1;
+        --accent: #b8492f;
+        --night: #20251f;
+        --line: rgba(30, 33, 28, 0.18);
+        --sans: "DM Sans", system-ui, sans-serif;
+        --serif: "Newsreader", Georgia, serif;
       }
 
-      body {
-        display: grid;
-        min-height: 100vh;
-        margin: 0;
-        place-items: center;
-        text-align: center;
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body { margin: 0; color: var(--ink); background: var(--paper); font-family: var(--sans); line-height: 1.55; }
+      a { color: inherit; }
+      .shell { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
+      .topbar { position: sticky; top: 0; z-index: 10; border-bottom: 1px solid var(--line); background: rgba(243,239,229,.9); backdrop-filter: blur(14px); }
+      nav { min-height: 74px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+      .brand { font-family: var(--serif); font-size: 1.45rem; text-decoration: none; }
+      .nav-links { display: flex; align-items: center; gap: 24px; font-size: .88rem; }
+      .nav-links a { text-decoration: none; }
+      .lang { border: 1px solid var(--ink); border-radius: 999px; padding: 7px 12px; color: var(--ink); background: transparent; font: 600 .75rem var(--sans); cursor: pointer; }
+      .hero { min-height: 720px; display: grid; grid-template-columns: 1.08fr .92fr; align-items: center; gap: 70px; padding: 92px 0 80px; }
+      .eyebrow { margin: 0 0 20px; color: var(--accent); font-size: .75rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; }
+      h1, h2, h3, blockquote { font-family: var(--serif); }
+      h1 { max-width: 720px; margin: 0; font-size: clamp(4rem, 8vw, 7.4rem); font-weight: 500; letter-spacing: -.055em; line-height: .9; }
+      .hero-copy { max-width: 580px; margin: 30px 0 34px; color: var(--muted); font-size: 1.13rem; }
+      .button { display: inline-flex; align-items: center; gap: 14px; padding: 13px 18px; border-bottom: 1px solid currentColor; color: var(--ink); text-decoration: none; font-weight: 600; }
+      .collage { position: relative; min-height: 510px; overflow: hidden; }
+      .photo { position: absolute; display: grid; place-items: end start; overflow: hidden; padding: 20px; color: white; border: 10px solid #faf7ef; box-shadow: 0 22px 60px rgba(45,40,30,.18); font-family: var(--serif); font-size: 1.2rem; }
+      .photo::before { content: ""; position: absolute; inset: 0; background: linear-gradient(transparent 40%, rgba(0,0,0,.58)); }
+      .photo span { position: relative; }
+      .photo-one { inset: 20px 42px 92px 72px; transform: rotate(2.5deg); background: linear-gradient(145deg,#89a9b0 0 34%,#d4b47a 35% 61%,#2e5148 62%); }
+      .photo-two { width: 190px; height: 235px; right: -16px; bottom: 10px; transform: rotate(-5deg); background: linear-gradient(150deg,#d49b76,#613c34 48%,#213f50); }
+      .tape { position: absolute; z-index: 2; width: 94px; height: 28px; top: 5px; left: 42%; transform: rotate(-8deg); background: rgba(221,207,166,.8); }
+      .stats { display: grid; grid-template-columns: repeat(4,1fr); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+      .stat { padding: 27px 0; }
+      .stat strong { display: block; font: 500 2.1rem var(--serif); }
+      .stat span { color: var(--muted); font-size: .78rem; text-transform: uppercase; letter-spacing: .08em; }
+      section { padding: 105px 0; }
+      .section-head { display: flex; align-items: end; justify-content: space-between; gap: 30px; margin-bottom: 42px; }
+      h2 { margin: 0; font-size: clamp(2.6rem,5vw,4.7rem); font-weight: 500; letter-spacing: -.04em; line-height: 1; }
+      .section-note { max-width: 360px; color: var(--muted); }
+      .story-grid { display: grid; grid-template-columns: 1.35fr 1fr 1fr; gap: 18px; }
+      .story { min-height: 340px; padding: 26px; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid var(--line); background: rgba(255,255,255,.22); }
+      .story:first-child { min-height: 500px; color: white; border: 0; background: linear-gradient(160deg,rgba(24,31,28,.05),rgba(24,31,28,.86)),linear-gradient(135deg,#9b9e8b,#be875f 45%,#243d3b); }
+      .kicker { font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; }
+      .story h3 { margin: 12px 0; font-size: 2rem; font-weight: 500; line-height: 1.05; }
+      .story p { margin: 0; opacity: .78; }
+      .exploring { background: var(--paper-deep); }
+      .explore-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+      .explore-item { min-height: 230px; padding: 28px; background: var(--paper-deep); }
+      .explore-item .icon { font-size: 1.6rem; }
+      .explore-item h3 { margin: 44px 0 10px; font-size: 1.55rem; font-weight: 500; }
+      .explore-item p { color: var(--muted); }
+      .places-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+      .place { min-height: 360px; padding: 24px; display: flex; flex-direction: column; justify-content: end; color: white; }
+      .place:nth-child(1) { background: linear-gradient(160deg,transparent,rgba(0,0,0,.72)),linear-gradient(135deg,#b8c7cc,#43636a); }
+      .place:nth-child(2) { background: linear-gradient(160deg,transparent,rgba(0,0,0,.72)),linear-gradient(135deg,#d2a172,#6e4e38); }
+      .place:nth-child(3) { background: linear-gradient(160deg,transparent,rgba(0,0,0,.72)),linear-gradient(135deg,#b7a9c6,#483f66); }
+      .place h3 { margin: 0; font-size: 2rem; font-weight: 500; }
+      .place p { margin-bottom: 0; opacity: .8; }
+      .music { color: #f0ecdf; background: var(--night); }
+      .music-layout { display: grid; grid-template-columns: 1fr 1.1fr; gap: 80px; align-items: center; }
+      .record { width: min(420px,80vw); aspect-ratio: 1; margin: auto; border-radius: 50%; background: repeating-radial-gradient(circle,#181b17 0 3px,#292d27 4px 7px); box-shadow: 0 30px 70px rgba(0,0,0,.35); display: grid; place-items: center; }
+      .record::after { content: "PLAY"; width: 34%; aspect-ratio: 1; display: grid; place-items: center; border-radius: 50%; color: #221f19; background: #d7a646; font-size: .74rem; letter-spacing: .14em; }
+      .music p { color: #b9bcaf; }
+      .track-list { margin-top: 34px; border-top: 1px solid rgba(255,255,255,.2); }
+      .track { display: flex; justify-content: space-between; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,.12); }
+      .principle { padding: 120px 0; text-align: center; }
+      blockquote { max-width: 900px; margin: 0 auto 24px; font-size: clamp(2.6rem,6vw,5.4rem); line-height: 1; letter-spacing: -.04em; }
+      .newsletter { padding: 70px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+      .newsletter-layout { display: grid; grid-template-columns: 1.2fr .8fr; gap: 60px; align-items: end; }
+      .signup { display: flex; border-bottom: 1px solid var(--ink); }
+      .signup input { width: 100%; padding: 14px 0; border: 0; outline: 0; background: transparent; font: 1rem var(--sans); }
+      .signup button { border: 0; background: transparent; font: 600 1rem var(--sans); cursor: pointer; }
+      footer { display: flex; justify-content: space-between; gap: 30px; padding: 40px 0 55px; color: var(--muted); font-size: .85rem; }
+      @media (max-width: 850px) {
+        .nav-links a { display: none; }
+        .hero, .music-layout, .newsletter-layout { grid-template-columns: 1fr; }
+        .hero { gap: 20px; padding-top: 70px; }
+        .collage { min-height: 430px; }
+        .story-grid, .places-row { grid-template-columns: 1fr; }
+        .story:first-child { min-height: 420px; }
+        .explore-grid { grid-template-columns: 1fr 1fr; }
+        .section-head { display: block; }
+        .section-note { margin-top: 20px; }
       }
-
-      main {
-        padding: 2rem;
-      }
-
-      a {
-        color: inherit;
+      @media (max-width: 520px) {
+        .shell { width: min(100% - 26px,1180px); }
+        h1 { font-size: 3.8rem; }
+        .stats { grid-template-columns: 1fr 1fr; }
+        .explore-grid { grid-template-columns: 1fr; }
+        section { padding: 80px 0; }
+        footer { flex-direction: column; }
       }
     </style>
   </head>
   <body>
-    <main>
-      <h1>Hola, mundo</h1>
-      <p>
-        Sígueme en Instagram:
-        <a href="https://www.instagram.com/carlosclaros71/">@carlosclaros71</a>
-      </p>
+    <header class="topbar">
+      <nav class="shell" aria-label="Navegación principal">
+        <a class="brand" href="#inicio">Carlos Claros</a>
+        <div class="nav-links">
+          <a href="#notas" data-es="Notas" data-en="Notes">Notas</a>
+          <a href="#lugares" data-es="Lugares" data-en="Places">Lugares</a>
+          <a href="#musica" data-es="Música" data-en="Music">Música</a>
+          <a href="#sobre-mi" data-es="Sobre mí" data-en="About">Sobre mí</a>
+          <button class="lang" type="button" aria-label="Cambiar idioma">EN / ES</button>
+        </div>
+      </nav>
+    </header>
+    <main id="inicio">
+      <div class="shell hero">
+        <div>
+          <p class="eyebrow" data-es="Cuaderno digital · Bogotá y el mundo" data-en="Digital notebook · Bogotá and the world">Cuaderno digital · Bogotá y el mundo</p>
+          <h1 data-es="Intento entender el mundo." data-en="Trying to understand the world.">Intento entender el mundo.</h1>
+          <p class="hero-copy" data-es="Viajo, observo, escucho y pienso. Este es mi espacio para conectar lugares, música, arte, diseño e ideas." data-en="I travel, observe, listen and think. This is my space to connect places, music, art, design and ideas.">Viajo, observo, escucho y pienso. Este es mi espacio para conectar lugares, música, arte, diseño e ideas.</p>
+          <a class="button" href="#notas"><span data-es="Explorar el cuaderno" data-en="Explore the notebook">Explorar el cuaderno</span> →</a>
+        </div>
+        <div class="collage" aria-label="Collage de viajes"><span class="tape"></span><div class="photo photo-one"><span>Tokyo, 2025</span></div><div class="photo photo-two"><span>Lisboa, 2024</span></div></div>
+      </div>
+      <div class="shell stats" aria-label="Resumen personal">
+        <div class="stat"><strong>24</strong><span data-es="años" data-en="years old">años</span></div>
+        <div class="stat"><strong>21</strong><span data-es="países" data-en="countries">países</span></div>
+        <div class="stat"><strong>∞</strong><span data-es="preguntas" data-en="questions">preguntas</span></div>
+        <div class="stat"><strong>01</strong><span data-es="cuaderno" data-en="notebook">cuaderno</span></div>
+      </div>
+      <section id="notas" class="shell">
+        <div class="section-head"><div><p class="eyebrow" data-es="Perspectivas" data-en="Perspectives">Perspectivas</p><h2 data-es="Notas para mirar dos veces." data-en="Notes worth a second look.">Notas para mirar dos veces.</h2></div><p class="section-note" data-es="No tengo la verdad absoluta. Estas son observaciones, comparaciones y preguntas que sigo explorando." data-en="I do not have absolute answers. These are observations, comparisons and questions I keep exploring.">No tengo la verdad absoluta. Estas son observaciones, comparaciones y preguntas que sigo explorando.</p></div>
+        <div class="story-grid">
+          <article class="story"><span class="kicker" data-es="Ensayo destacado" data-en="Featured essay">Ensayo destacado</span><div><h3 data-es="¿El turismo está cambiando las ciudades que amamos?" data-en="Is tourism changing the cities we love?">¿El turismo está cambiando las ciudades que amamos?</h3><p data-es="Una pregunta incómoda desde Lisboa, Barcelona y Bogotá." data-en="An uncomfortable question from Lisbon, Barcelona and Bogotá.">Una pregunta incómoda desde Lisboa, Barcelona y Bogotá.</p></div></article>
+          <article class="story"><span class="kicker" data-es="Comparación" data-en="Comparison">Comparación</span><div><h3 data-es="Tokio y Europa: dos maneras de compartir una ciudad" data-en="Tokyo and Europe: two ways to share a city">Tokio y Europa: dos maneras de compartir una ciudad</h3><p data-es="Orden, privacidad y vida pública." data-en="Order, privacy and public life.">Orden, privacidad y vida pública.</p></div></article>
+          <article class="story"><span class="kicker" data-es="Idea" data-en="Idea">Idea</span><div><h3 data-es="Viajar no siempre abre la mente" data-en="Travel does not always broaden the mind">Viajar no siempre abre la mente</h3><p data-es="Lo que importa no es llegar, sino aprender a observar." data-en="What matters is not arriving, but learning to observe.">Lo que importa no es llegar, sino aprender a observar.</p></div></article>
+        </div>
+      </section>
+      <section class="exploring">
+        <div class="shell"><div class="section-head"><div><p class="eyebrow" data-es="Ahora mismo" data-en="Right now">Ahora mismo</p><h2 data-es="Cosas que estoy explorando." data-en="Things I am exploring.">Cosas que estoy explorando.</h2></div></div>
+          <div class="explore-grid">
+            <article class="explore-item"><span class="icon">📖</span><h3 data-es="Leyendo" data-en="Reading">Leyendo</h3><p data-es="Ensayos sobre ciudades y la vida cotidiana." data-en="Essays on cities and everyday life.">Ensayos sobre ciudades y la vida cotidiana.</p></article>
+            <article class="explore-item"><span class="icon">🎧</span><h3 data-es="Escuchando" data-en="Listening">Escuchando</h3><p data-es="Jazz contemporáneo y sonidos de Latinoamérica." data-en="Contemporary jazz and sounds from Latin America.">Jazz contemporáneo y sonidos de Latinoamérica.</p></article>
+            <article class="explore-item"><span class="icon">💭</span><h3 data-es="Pensando" data-en="Thinking">Pensando</h3><p data-es="¿Qué hace que una ciudad se sienta humana?" data-en="What makes a city feel human?">¿Qué hace que una ciudad se sienta humana?</p></article>
+            <article class="explore-item"><span class="icon">🌱</span><h3 data-es="Aprendiendo" data-en="Learning">Aprendiendo</h3><p data-es="A escribir con más claridad y menos ruido." data-en="To write with more clarity and less noise.">A escribir con más claridad y menos ruido.</p></article>
+          </div>
+        </div>
+      </section>
+      <section id="lugares" class="shell">
+        <div class="section-head"><div><p class="eyebrow" data-es="Lugares que me cambiaron" data-en="Places that changed me">Lugares que me cambiaron</p><h2 data-es="Más que una lista de países." data-en="More than a country count.">Más que una lista de países.</h2></div><p class="section-note" data-es="Momentos que transformaron mi manera de pensar, no recomendaciones turísticas." data-en="Moments that shifted how I think, not travel recommendations.">Momentos que transformaron mi manera de pensar, no recomendaciones turísticas.</p></div>
+        <div class="places-row">
+          <article class="place"><span class="kicker">Japón</span><h3 data-es="El valor del silencio" data-en="The value of silence">El valor del silencio</h3><p data-es="Orden, atención y presión social." data-en="Order, attention and social pressure.">Orden, atención y presión social.</p></article>
+          <article class="place"><span class="kicker">Portugal</span><h3 data-es="La ciudad como sala de estar" data-en="The city as a living room">La ciudad como sala de estar</h3><p data-es="Calles que invitan a quedarse." data-en="Streets that invite you to stay.">Calles que invitan a quedarse.</p></article>
+          <article class="place"><span class="kicker">Colombia</span><h3 data-es="Volver a mirar lo cercano" data-en="Looking again at what is close">Volver a mirar lo cercano</h3><p data-es="Entender el mundo también empieza en casa." data-en="Understanding the world also begins at home.">Entender el mundo también empieza en casa.</p></article>
+        </div>
+      </section>
+      <section id="musica" class="music"><div class="shell music-layout"><div class="record" aria-hidden="true"></div><div><p class="eyebrow" data-es="La banda sonora" data-en="The soundtrack">La banda sonora</p><h2 data-es="Música para acompañar ideas." data-en="Music to accompany ideas.">Música para acompañar ideas.</h2><p data-es="Canciones, álbumes y conciertos que conecto con ciudades, temporadas y recuerdos." data-en="Songs, albums and concerts I connect with cities, seasons and memories.">Canciones, álbumes y conciertos que conecto con ciudades, temporadas y recuerdos.</p><div class="track-list"><div class="track"><span data-es="Tokio de noche" data-en="Tokyo at night">Tokio de noche</span><span>34 min</span></div><div class="track"><span data-es="Música para pensar" data-en="Music for thinking">Música para pensar</span><span>52 min</span></div><div class="track"><span data-es="Descubrimientos del mes" data-en="Discoveries of the month">Descubrimientos del mes</span><span>41 min</span></div></div></div></div></section>
+      <section id="sobre-mi" class="shell principle"><p class="eyebrow" data-es="Un principio" data-en="A principle">Un principio</p><blockquote data-es="“Observar antes de juzgar. Viajar para aprender, no para presumir.”" data-en="“Observe before judging. Travel to learn, not to perform.”">“Observar antes de juzgar. Viajar para aprender, no para presumir.”</blockquote><p data-es="Carlos Claros · Observador, viajero y estudiante permanente." data-en="Carlos Claros · Observer, traveler and lifelong student.">Carlos Claros · Observador, viajero y estudiante permanente.</p></section>
+      <section class="newsletter"><div class="shell newsletter-layout"><div><p class="eyebrow" data-es="Una nota al mes" data-en="One note a month">Una nota al mes</p><h2 data-es="Cosas que me hicieron pensar." data-en="Things that made me think.">Cosas que me hicieron pensar.</h2></div><form class="signup" onsubmit="event.preventDefault(); this.querySelector('button').textContent = document.documentElement.lang === 'es' ? 'Próximamente' : 'Coming soon';"><input type="email" aria-label="Correo electrónico" placeholder="tu@email.com"><button type="submit" data-es="Suscribirme" data-en="Subscribe">Suscribirme</button></form></div></section>
     </main>
+    <footer class="shell"><span>© 2026 Carlos Claros</span><a href="https://www.instagram.com/carlosclaros71/" target="_blank" rel="noreferrer">Instagram · @carlosclaros71</a></footer>
+    <script>
+      const languageButton = document.querySelector('.lang');
+      languageButton.addEventListener('click', () => {
+        const nextLanguage = document.documentElement.lang === 'es' ? 'en' : 'es';
+        document.documentElement.lang = nextLanguage;
+        document.querySelectorAll('[data-es][data-en]').forEach((element) => { element.textContent = element.dataset[nextLanguage]; });
+        document.title = nextLanguage === 'es' ? 'Carlos Claros — Observando el mundo' : 'Carlos Claros — Observing the world';
+      });
+    </script>
   </body>
 </html>
