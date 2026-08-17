@@ -166,8 +166,9 @@
       <section id="sobre-mi" class="shell principle"><p class="eyebrow" data-es="Un principio" data-en="A principle">Un principio</p><blockquote data-es="“Observar antes de juzgar. Viajar para aprender, no para presumir.”" data-en="“Observe before judging. Travel to learn, not to perform.”">“Observar antes de juzgar. Viajar para aprender, no para presumir.”</blockquote><p data-es="Carlos Claros · Observador, viajero y estudiante permanente." data-en="Carlos Claros · Observer, traveler and lifelong student.">Carlos Claros · Observador, viajero y estudiante permanente.</p></section>
       <section class="newsletter"><div class="shell newsletter-layout"><div><p class="eyebrow" data-es="Una nota al mes" data-en="One note a month">Una nota al mes</p><h2 data-es="Cosas que me hicieron pensar." data-en="Things that made me think.">Cosas que me hicieron pensar.</h2></div><form class="signup" onsubmit="event.preventDefault(); this.querySelector('button').textContent = document.documentElement.lang === 'es' ? 'Próximamente' : 'Coming soon';"><input type="email" aria-label="Correo electrónico" placeholder="tu@email.com"><button type="submit" data-es="Suscribirme" data-en="Subscribe">Suscribirme</button></form></div></section>
     </main>
-    <footer class="shell"><span>© 2026 Carlos Claros</span><a href="https://www.instagram.com/carlosclaros71/" target="_blank" rel="noreferrer">Instagram · @carlosclaros71</a></footer>
+    <footer class="shell"><span>© <span id="current-year">2026</span> Carlos Claros</span><a href="https://www.instagram.com/carlosclaros71/" target="_blank" rel="noreferrer">Instagram · @carlosclaros71</a></footer>
     <script>
+      document.querySelector('#current-year').textContent = new Date().getFullYear();
       const languageButton = document.querySelector('.lang');
       languageButton.addEventListener('click', () => {
         const nextLanguage = document.documentElement.lang === 'es' ? 'en' : 'es';
