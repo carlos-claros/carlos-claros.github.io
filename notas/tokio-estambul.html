@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Una comparación de Carlos Claros sobre las formas de convivir y compartir el espacio público en Tokio y Estambul.">
+    <title>¿Qué mantiene unida a una ciudad? — Carlos Claros</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap");
+
+      :root {
+        --ink: #1e211c;
+        --muted: #696b62;
+        --paper: #f3efe5;
+        --paper-deep: #e8e0d1;
+        --accent: #b8492f;
+        --line: rgba(30, 33, 28, 0.18);
+        --sans: "DM Sans", system-ui, sans-serif;
+        --serif: "Newsreader", Georgia, serif;
+      }
+
+      * { box-sizing: border-box; }
+      body { margin: 0; color: var(--ink); background: var(--paper); font-family: var(--sans); line-height: 1.7; }
+      a { color: inherit; }
+      .shell { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
+      .topbar { position: sticky; top: 0; z-index: 10; border-bottom: 1px solid var(--line); background: rgba(243,239,229,.9); backdrop-filter: blur(14px); }
+      nav { min-height: 74px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+      .brand { font: 1.45rem var(--serif); text-decoration: none; }
+      .nav-actions { display: flex; align-items: center; gap: 22px; }
+      .back-link { font-size: .88rem; text-decoration: none; }
+      .back-link:hover { text-decoration: underline; text-underline-offset: 4px; }
+      .lang { border: 1px solid var(--ink); border-radius: 999px; padding: 7px 12px; color: var(--ink); background: transparent; font: 600 .75rem var(--sans); cursor: pointer; }
+      .lang:focus-visible, a:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+      .article-head { max-width: 1000px; padding: 110px 0 68px; }
+      .eyebrow { margin: 0 0 22px; color: var(--accent); font-size: .75rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; }
+      h1 { max-width: 980px; margin: 0; font: 500 clamp(3.4rem, 7.5vw, 7rem)/.94 var(--serif); letter-spacing: -.05em; }
+      .dek { max-width: 650px; margin: 30px 0 0; color: var(--muted); font-size: 1.15rem; }
+      .article-rule { border: 0; border-top: 1px solid var(--line); margin: 0; }
+      .article-layout { display: grid; grid-template-columns: minmax(160px, 1fr) minmax(0, 680px) 1fr; gap: 42px; padding: 72px 0 110px; }
+      .article-meta { color: var(--muted); font-size: .76rem; letter-spacing: .09em; text-transform: uppercase; }
+      .article-meta span { display: block; margin-bottom: 8px; }
+      .article-content { grid-column: 2; }
+      .article-content p { margin: 0 0 1.55em; font: 400 1.35rem/1.62 var(--serif); }
+      .article-content p:first-child::first-letter { float: left; margin: .08em .08em 0 0; color: var(--accent); font-size: 4.6rem; line-height: .72; }
+      .closing { margin: 2.4em 0 0; padding: 34px 0 4px; border-top: 1px solid var(--line); font: 500 clamp(2rem, 4vw, 3.25rem)/1.08 var(--serif); letter-spacing: -.03em; }
+      .article-en[hidden], .article-es[hidden] { display: none; }
+      .more { padding: 62px 0; background: var(--paper-deep); }
+      .more-inner { display: flex; align-items: center; justify-content: space-between; gap: 30px; }
+      .more p { margin: 0; font: 500 clamp(1.8rem, 4vw, 3rem)/1.05 var(--serif); }
+      .more a { flex: none; font-weight: 600; text-decoration: none; border-bottom: 1px solid currentColor; }
+      footer { display: flex; justify-content: space-between; gap: 30px; padding: 40px 0 55px; color: var(--muted); font-size: .85rem; }
+
+      @media (max-width: 760px) {
+        .article-head { padding: 78px 0 52px; }
+        .article-layout { display: block; padding: 50px 0 80px; }
+        .article-meta { margin-bottom: 36px; }
+        .more-inner { align-items: flex-start; flex-direction: column; }
+      }
+      @media (max-width: 520px) {
+        .shell { width: min(100% - 26px, 1180px); }
+        h1 { font-size: 3.15rem; }
+        .back-link { display: none; }
+        .article-content p { font-size: 1.2rem; }
+        footer { flex-direction: column; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <nav class="shell" aria-label="Navegación del ensayo">
+        <a class="brand" href="../index.html">Carlos Claros</a>
+        <div class="nav-actions">
+          <a class="back-link" href="../index.html#notas" data-es="← Volver a las notas" data-en="← Back to notes">← Volver a las notas</a>
+          <button class="lang" type="button" aria-label="Cambiar idioma">EN / ES</button>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <header class="shell article-head">
+        <p class="eyebrow" data-es="Comparación · Cultura y ciudades" data-en="Comparison · Culture and cities">Comparación · Cultura y ciudades</p>
+        <h1 data-es="¿Qué mantiene unida a una ciudad: el orden o la capacidad de improvisar?" data-en="What holds a city together: order or the ability to improvise?">¿Qué mantiene unida a una ciudad: el orden o la capacidad de improvisar?</h1>
+        <p class="dek" data-es="Tokio y Estambul, dos formas de habitar la multitud." data-en="Tokyo and Istanbul, two ways of inhabiting a crowd.">Tokio y Estambul, dos formas de habitar la multitud.</p>
+      </header>
+
+      <hr class="article-rule">
+
+      <div class="shell article-layout">
+        <aside class="article-meta" aria-label="Información de lectura">
+          <span>Carlos Claros</span>
+          <span data-es="3 min de lectura" data-en="3 min read">3 min de lectura</span>
+        </aside>
+
+        <article class="article-content article-es">
+          <p>En Tokio, una multitud puede sentirse como silencio. En Estambul, el silencio puede sentirse fuera de lugar.</p>
+          <p>Las dos ciudades están llenas de personas, sonidos y movimiento. Sin embargo, compartir el espacio en cada una exige aprender un lenguaje completamente diferente.</p>
+          <p>En Tokio, ese lenguaje parece estar escrito, aunque nadie lo explique. Las personas esperan en filas, reducen la voz y observan el movimiento de quienes tienen alrededor. En una estación, miles de desconocidos pueden cruzarse sin que el lugar parezca perder el control. Cada persona intenta ocupar poco espacio y no interrumpir el recorrido de las demás.</p>
+          <p>La ciudad funciona porque todos parecen anticipar el siguiente movimiento.</p>
+          <p>Estambul transmite otra sensación. El espacio público no se organiza solamente mediante reglas: también se negocia. Entre vendedores, conversaciones, tráfico, ferris y calles concurridas, las personas reaccionan constantemente a lo que sucede. Para avanzar no basta con seguir una línea; hay que observar, adaptarse y encontrar el momento adecuado.</p>
+          <p>La ciudad funciona porque todos saben improvisar.</p>
+          <p>Esta diferencia no es únicamente urbana; también es cultural. En Tokio, la consideración hacia los demás suele expresarse mediante la discreción: hablar con moderación, observar las normas y evitar imponer la propia presencia. El respeto consiste muchas veces en no interrumpir.</p>
+          <p>En Estambul, la consideración puede ser más visible. Aparece en el saludo, la conversación, la ayuda espontánea o una taza de té compartida con otra persona. El respeto no siempre significa conservar la distancia; también puede signific reconocer al otro y hacerle un lugar.</p>
+          <p>En una ciudad, la armonía se protege mediante la contención. En la otra, se construye mediante el contacto.</p>
+          <p>Esto no significa que todos los habitantes de Tokio sean distantes ni que todos en Estambul sean espontáneos. Las ciudades son demasiado complejas para reducirlas a una sola característica. Pero al recorrerlas se perciben diferentes maneras de relacionarse con desconocidos.</p>
+          <p>Al principio, Tokio puede parecer ordenada y Estambul caótica. Sin embargo, esa comparación se queda corta. El orden de Tokio también puede generar distancia y presión por no cometer errores. El caos de Estambul puede resultar agotador, pero también producir cercanía, conversación y una sorprendente sensación de humanidad.</p>
+          <p>Tokio confía en la anticipación; Estambul, en la reacción. Una protege el espacio mediante la discreción; la otra lo comparte mediante la interacción. Ninguna forma es necesariamente mejor. Cada una responde a una manera distinta de entender la convivencia.</p>
+          <p>Quizás una ciudad no se mantiene unida solamente por sus reglas o su infraestructura. También se mantiene unida por los códigos culturales que permiten a sus habitantes entenderse sin tener que explicarlo todo.</p>
+          <blockquote class="closing">Tokio me enseñó que respetar al otro puede signific no interrumpirlo. Estambul, que también puede signific reconocerlo y hacerle un lugar.</blockquote>
+        </article>
+
+        <article class="article-content article-en" lang="en" hidden>
+          <p>In Tokyo, a crowd can feel like silence. In Istanbul, silence can feel out of place.</p>
+          <p>Both cities are filled with people, sounds and movement. Yet sharing space in each one requires learning an entirely different language.</p>
+          <p>In Tokyo, that language seems to be written down, even though no one explains it. People queue, lower their voices and watch the movement of those around them. In a station, thousands of strangers can cross paths without the place seeming to lose control. Each person tries to take up little space and avoid interrupting anyone else's path.</p>
+          <p>The city works because everyone seems to anticipate the next movement.</p>
+          <p>Istanbul gives a different impression. Public space is not organized solely through rules; it is also negotiated. Among vendors, conversations, traffic, ferries and crowded streets, people constantly react to what is happening. Moving forward is not just a matter of following a line; you have to watch, adapt and find the right moment.</p>
+          <p>The city works because everyone knows how to improvise.</p>
+          <p>This difference is not only urban; it is also cultural. In Tokyo, consideration for others is often expressed through discretion: speaking quietly, observing social norms and avoiding imposing one's presence. Respect often means not interrupting.</p>
+          <p>In Istanbul, consideration can be more visible. It appears in a greeting, a conversation, spontaneous help or a cup of tea shared with someone else. Respect does not always mean keeping your distance; it can also mean acknowledging another person and making room for them.</p>
+          <p>In one city, harmony is protected through restraint. In the other, it is built through contact.</p>
+          <p>This does not mean that everyone in Tokyo is distant or everyone in Istanbul is spontaneous. Cities are far too complex to be reduced to a single trait. But walking through them reveals different ways of relating to strangers.</p>
+          <p>At first, Tokyo may seem orderly and Istanbul chaotic. Yet that comparison falls short. Tokyo's order can also create distance and pressure not to make mistakes. Istanbul's chaos can be exhausting, but it can also create closeness, conversation and a surprising sense of humanity.</p>
+          <p>Tokyo relies on anticipation; Istanbul, on reaction. One protects space through discretion; the other shares it through interaction. Neither way is necessarily better. Each responds to a different understanding of coexistence.</p>
+          <p>Perhaps a city is held together not only by its rules or infrastructure. It is also held together by the cultural codes that allow its inhabitants to understand one another without having to explain everything.</p>
+          <blockquote class="closing">Tokyo taught me that respecting others can mean not interrupting them. Istanbul taught me that it can also mean acknowledging them and making room.</blockquote>
+        </article>
+      </div>
+
+      <section class="more">
+        <div class="shell more-inner">
+          <p data-es="Dos ciudades. Dos ritmos." data-en="Two cities. Two rhythms.">Dos ciudades. Dos ritmos.</p>
+          <a href="../index.html#notas" data-es="Explorar más notas →" data-en="Explore more notes →">Explorar más notas →</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="shell">
+      <span>© <span id="current-year">2026</span> Carlos Claros</span>
+      <a href="https://www.instagram.com/carlosclaros71/" target="_blank" rel="noreferrer">Instagram · @carlosclaros71</a>
+    </footer>
+
+    <script>
+      document.querySelector('#current-year').textContent = new Date().getFullYear();
+      const languageButton = document.querySelector('.lang');
+      const spanishArticle = document.querySelector('.article-es');
+      const englishArticle = document.querySelector('.article-en');
+
+      languageButton.addEventListener('click', () => {
+        const nextLanguage = document.documentElement.lang === 'es' ? 'en' : 'es';
+        document.documentElement.lang = nextLanguage;
+        document.querySelectorAll('[data-es][data-en]').forEach((element) => {
+          element.textContent = element.dataset[nextLanguage];
+        });
+        spanishArticle.hidden = nextLanguage !== 'es';
+        englishArticle.hidden = nextLanguage !== 'en';
+        document.title = nextLanguage === 'es'
+          ? '¿Qué mantiene unida a una ciudad? — Carlos Claros'
+          : 'What holds a city together? — Carlos Claros';
+      });
+    </script>
+  </body>
+</html>
