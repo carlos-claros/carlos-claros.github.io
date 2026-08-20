@@ -48,7 +48,16 @@
       .more-inner { display: flex; align-items: center; justify-content: space-between; gap: 30px; }
       .more p { margin: 0; font: 500 clamp(1.8rem, 4vw, 3rem)/1.05 var(--serif); }
       .more a { flex: none; font-weight: 600; text-decoration: none; border-bottom: 1px solid currentColor; }
-      footer { display: flex; justify-content: space-between; gap: 30px; padding: 40px 0 55px; color: var(--muted); font-size: .85rem; }
+      footer { display: grid; gap: 26px; padding: 46px 0 55px; color: var(--muted); font-size: .85rem; }
+      .footer-block { display: grid; gap: 5px; }
+      .footer-label { margin: 0; color: var(--accent); font-size: .7rem; font-weight: 600; letter-spacing: .13em; text-transform: uppercase; }
+      .footer-link { width: fit-content; color: var(--ink); font-size: .95rem; text-decoration: none; }
+      .footer-link:hover { opacity: .65; }
+      .instagram-link { display: inline-flex; align-items: center; gap: 9px; }
+      .instagram-mark { position: relative; width: 20px; height: 20px; border: 1.8px solid currentColor; border-radius: 6px; }
+      .instagram-mark::before { content: ""; position: absolute; width: 6px; height: 6px; top: 50%; left: 50%; border: 1.6px solid currentColor; border-radius: 50%; transform: translate(-50%,-50%); }
+      .instagram-mark::after { content: ""; position: absolute; width: 2.5px; height: 2.5px; top: 3.5px; right: 3.5px; border-radius: 50%; background: currentColor; }
+      .footer-copy { padding-top: 22px; border-top: 1px solid var(--line); }
 
       @media (max-width: 760px) {
         .article-head { padding: 78px 0 52px; }
@@ -61,7 +70,6 @@
         h1 { font-size: 3.15rem; }
         .back-link { display: none; }
         .article-content p { font-size: 1.2rem; }
-        footer { flex-direction: column; }
       }
     </style>
   </head>
@@ -135,8 +143,9 @@
     </main>
 
     <footer class="shell">
-      <span>© <span id="current-year">2026</span> Carlos Claros</span>
-      <a href="https://www.instagram.com/carlosclaros71/" target="_blank" rel="noreferrer">Instagram · @carlosclaros71</a>
+      <div class="footer-block"><p class="footer-label" data-es="Contacto" data-en="Contact">Contacto</p><a class="footer-link" href="mailto:cpissoclaros@gmail.com">cpissoclaros@gmail.com</a></div>
+      <div class="footer-block"><p class="footer-label" data-es="Sígueme" data-en="Follow">Sígueme</p><a class="footer-link instagram-link" href="https://www.instagram.com/carlosclaros71/" target="_blank" rel="noreferrer" aria-label="Instagram de Carlos Claros, @carlosclaros71"><span class="instagram-mark" aria-hidden="true"></span><span>@carlosclaros71</span></a></div>
+      <div class="footer-copy">© <span id="current-year">2026</span> Carlos Claros</div>
     </footer>
 
     <script>

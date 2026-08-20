@@ -94,7 +94,16 @@
       .signup { display: flex; border-bottom: 1px solid var(--ink); }
       .signup input { width: 100%; padding: 14px 0; border: 0; outline: 0; background: transparent; font: 1rem var(--sans); }
       .signup button { border: 0; background: transparent; font: 600 1rem var(--sans); cursor: pointer; }
-      footer { display: flex; justify-content: space-between; gap: 30px; padding: 40px 0 55px; color: var(--muted); font-size: .85rem; }
+      footer { display: grid; gap: 26px; padding: 46px 0 55px; color: var(--muted); font-size: .85rem; }
+      .footer-block { display: grid; gap: 5px; }
+      .footer-label { margin: 0; color: var(--accent); font-size: .7rem; font-weight: 600; letter-spacing: .13em; text-transform: uppercase; }
+      .footer-link { width: fit-content; color: var(--ink); font-size: .95rem; text-decoration: none; }
+      .footer-link:hover { opacity: .65; }
+      .instagram-link { display: inline-flex; align-items: center; gap: 9px; }
+      .instagram-mark { position: relative; width: 20px; height: 20px; border: 1.8px solid currentColor; border-radius: 6px; }
+      .instagram-mark::before { content: ""; position: absolute; width: 6px; height: 6px; top: 50%; left: 50%; border: 1.6px solid currentColor; border-radius: 50%; transform: translate(-50%,-50%); }
+      .instagram-mark::after { content: ""; position: absolute; width: 2.5px; height: 2.5px; top: 3.5px; right: 3.5px; border-radius: 50%; background: currentColor; }
+      .footer-copy { padding-top: 22px; border-top: 1px solid var(--line); }
       @media (max-width: 850px) {
         .nav-links a { display: none; }
         .hero, .music-layout, .newsletter-layout { grid-template-columns: 1fr; }
@@ -112,7 +121,6 @@
         .stats { grid-template-columns: 1fr 1fr; }
         .explore-grid { grid-template-columns: 1fr; }
         section { padding: 80px 0; }
-        footer { flex-direction: column; }
       }
     </style>
   </head>
@@ -175,7 +183,11 @@
       <section id="sobre-mi" class="shell principle"><p class="eyebrow" data-es="Un principio" data-en="A principle">Un principio</p><blockquote data-es="“Viajar no es acumular destinos, sino aprender a mirar de nuevo.”" data-en="“Travel is not about collecting destinations, but learning to see anew.”">“Viajar no es acumular destinos, sino aprender a mirar de nuevo.”</blockquote><p data-es="Soy Carlos Claros. Observo, escucho y escribo sobre los lugares, sonidos e ideas que transforman mi manera de entender el mundo." data-en="I’m Carlos Claros. I observe, listen, and write about the places, sounds, and ideas that transform how I understand the world.">Soy Carlos Claros. Observo, escucho y escribo sobre los lugares, sonidos e ideas que transforman mi manera de entender el mundo.</p></section>
       <section class="newsletter"><div class="shell newsletter-layout"><div><p class="eyebrow" data-es="Una nota al mes" data-en="One note a month">Una nota al mes</p><h2 data-es="Cosas que me hicieron pensar." data-en="Things that made me think.">Cosas que me hicieron pensar.</h2></div><form class="signup" onsubmit="event.preventDefault(); this.querySelector('button').textContent = document.documentElement.lang === 'es' ? 'Próximamente' : 'Coming soon';"><input type="email" aria-label="Correo electrónico" placeholder="tu@email.com"><button type="submit" data-es="Suscribirme" data-en="Subscribe">Suscribirme</button></form></div></section>
     </main>
-    <footer class="shell"><span>© <span id="current-year">2026</span> Carlos Claros</span><a href="https://www.instagram.com/carlosclaros71/" target="_blank" rel="noreferrer">Instagram · @carlosclaros71</a></footer>
+    <footer class="shell">
+      <div class="footer-block"><p class="footer-label" data-es="Contacto" data-en="Contact">Contacto</p><a class="footer-link" href="mailto:cpissoclaros@gmail.com">cpissoclaros@gmail.com</a></div>
+      <div class="footer-block"><p class="footer-label" data-es="Sígueme" data-en="Follow">Sígueme</p><a class="footer-link instagram-link" href="https://www.instagram.com/carlosclaros71/" target="_blank" rel="noreferrer" aria-label="Instagram de Carlos Claros, @carlosclaros71"><span class="instagram-mark" aria-hidden="true"></span><span>@carlosclaros71</span></a></div>
+      <div class="footer-copy">© <span id="current-year">2026</span> Carlos Claros</div>
+    </footer>
     <script>
       document.querySelector('#current-year').textContent = new Date().getFullYear();
       const languageButton = document.querySelector('.lang');
