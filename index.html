@@ -41,8 +41,11 @@
       .photo { position: absolute; display: grid; place-items: end start; overflow: hidden; padding: 20px; color: white; border: 10px solid #faf7ef; box-shadow: 0 22px 60px rgba(45,40,30,.18); font-family: var(--serif); font-size: 1.2rem; }
       .photo::before { content: ""; position: absolute; inset: 0; background: linear-gradient(transparent 40%, rgba(0,0,0,.58)); }
       .photo span { position: relative; }
-      .photo-one { inset: 20px 42px 92px 72px; transform: rotate(2.5deg); background: linear-gradient(145deg,#89a9b0 0 34%,#d4b47a 35% 61%,#2e5148 62%); }
-      .photo-two { width: 190px; height: 235px; right: -16px; bottom: 10px; transform: rotate(-5deg); background: linear-gradient(150deg,#d49b76,#613c34 48%,#213f50); }
+      .photo-one { inset: 20px 42px 92px 72px; transform: rotate(2.5deg); background: url("images/tokyo-tower.jpg") center 44% / cover; }
+      .photo-one span { align-self: start; }
+      .photo-two { width: 190px; height: 235px; right: -16px; bottom: 10px; transform: rotate(-5deg); background-image: linear-gradient(transparent 52%, rgba(0,0,0,.32)), url("images/new-york-night.jpg"); background-size: cover; background-position: center; }
+      .photo-three { z-index: 1; width: 155px; height: 180px; left: 0; bottom: 4px; transform: rotate(5deg); background: linear-gradient(145deg,#9d91ac,#536c73 52%,#c69772); }
+      .photo-three::after { content: "+"; position: absolute; inset: 50% auto auto 50%; transform: translate(-50%,-60%); font: 300 3.5rem var(--sans); color: rgba(255,255,255,.65); }
       .tape { position: absolute; z-index: 2; width: 94px; height: 28px; top: 5px; left: 42%; transform: rotate(-8deg); background: rgba(221,207,166,.8); }
       .stats { display: grid; grid-template-columns: repeat(4,1fr); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
       .stat { padding: 27px 0; }
@@ -128,7 +131,7 @@
           <p class="hero-copy" data-es="Viajo, observo, escucho y pienso. Este es mi espacio para conectar lugares, música, arte, diseño e ideas." data-en="I travel, observe, listen and think. This is my space to connect places, music, art, design and ideas.">Viajo, observo, escucho y pienso. Este es mi espacio para conectar lugares, música, arte, diseño e ideas.</p>
           <a class="button" href="#notas"><span data-es="Explorar el cuaderno" data-en="Explore the notebook">Explorar el cuaderno</span> →</a>
         </div>
-        <div class="collage" aria-label="Collage de viajes"><span class="tape"></span><div class="photo photo-one"><span>Tokyo, 2025</span></div><div class="photo photo-two"><span>New York</span></div></div>
+        <div class="collage" aria-label="Collage de viajes"><span class="tape"></span><div class="photo photo-one" role="img" aria-label="Tokyo Tower iluminada de noche"><span>Tokyo, 2025</span></div><div class="photo photo-two" role="img" aria-label="Carlos contemplando el skyline de Nueva York en 2026"><span>New York, 2026</span></div><div class="photo photo-three" role="img" aria-label="Espacio reservado para una foto de Seúl en 2027"><span>Seoul, 2027</span></div></div>
       </div>
       <div class="shell stats" aria-label="Resumen personal">
         <div class="stat"><strong>24</strong><span data-es="años" data-en="years old">años</span></div>
