@@ -80,6 +80,10 @@
       .place:nth-child(3) { background: linear-gradient(160deg,transparent,rgba(0,0,0,.72)),linear-gradient(135deg,#b7a9c6,#483f66); }
       .place h3 { margin: 0; font-size: 2rem; font-weight: 500; }
       .place p { margin-bottom: 0; opacity: .8; }
+      .place-link { text-decoration: none; transition: transform .2s ease, box-shadow .2s ease; }
+      .place-link:hover { transform: translateY(-4px); box-shadow: 0 18px 45px rgba(45,40,30,.18); }
+      .place-link:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+      .place-cta { margin-top: 18px; font-size: .78rem; font-weight: 600; letter-spacing: .04em; }
       .music { color: #f0ecdf; background: var(--night); }
       .music-layout { display: grid; grid-template-columns: 1fr 1.1fr; gap: 80px; align-items: center; }
       .record { width: min(420px,80vw); aspect-ratio: 1; margin: auto; border-radius: 50%; background: repeating-radial-gradient(circle,#181b17 0 3px,#292d27 4px 7px); box-shadow: 0 30px 70px rgba(0,0,0,.35); display: grid; place-items: center; text-decoration: none; transition: transform .25s ease, box-shadow .25s ease; }
@@ -179,7 +183,7 @@
       <section id="lugares" class="shell">
         <div class="section-head"><div><p class="eyebrow" data-es="Lugares que me cambiaron" data-en="Places that changed me">Lugares que me cambiaron</p><h2 data-es="Más que una lista de países." data-en="More than a country count.">Más que una lista de países.</h2></div><p class="section-note" data-es="Momentos que transformaron mi manera de pensar, no recomendaciones turísticas." data-en="Moments that shifted how I think, not travel recommendations.">Momentos que transformaron mi manera de pensar, no recomendaciones turísticas.</p></div>
         <div class="places-row">
-          <article class="place"><span class="kicker">Japón</span><h3 data-es="El valor del silencio" data-en="The value of silence">El valor del silencio</h3><p data-es="Orden, atención y presión social." data-en="Order, attention and social pressure.">Orden, atención y presión social.</p></article>
+          <a class="place place-link" href="notas/japon-armonia-exigencia.html"><span class="kicker">Japón</span><h3 data-es="Entre la armonía y la exigencia" data-en="Between harmony and pressure">Entre la armonía y la exigencia</h3><p data-es="Convivencia colectiva, perfección y presión social." data-en="Collective coexistence, perfection and social pressure.">Convivencia colectiva, perfección y presión social.</p><span class="place-cta" data-es="Leer reflexión →" data-en="Read reflection →">Leer reflexión →</span></a>
           <article class="place"><span class="kicker">Nueva York</span><h3 data-es="La ciudad que nunca deja de moverse" data-en="The city that never stops moving">La ciudad que nunca deja de moverse</h3><p data-es="Escala, energía y contradicciones." data-en="Scale, energy and contradictions.">Escala, energía y contradicciones.</p></article>
           <article class="place"><span class="kicker">Colombia</span><h3 data-es="Volver a mirar lo cercano" data-en="Looking again at what is close">Volver a mirar lo cercano</h3><p data-es="Entender el mundo también empieza en casa." data-en="Understanding the world also begins at home.">Entender el mundo también empieza en casa.</p></article>
         </div>
