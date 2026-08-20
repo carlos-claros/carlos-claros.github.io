@@ -57,6 +57,9 @@
       .section-note { max-width: 360px; color: var(--muted); }
       .story-grid { display: grid; grid-template-columns: 1.35fr 1fr 1fr; gap: 18px; }
       .story { min-height: 340px; padding: 26px; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid var(--line); background: rgba(255,255,255,.22); }
+      .story-link { text-decoration: none; transition: transform .2s ease, box-shadow .2s ease; }
+      .story-link:hover { transform: translateY(-4px); box-shadow: 0 18px 45px rgba(45,40,30,.14); }
+      .story-link:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
       .story:first-child { min-height: 500px; color: white; border: 0; background: linear-gradient(160deg,rgba(24,31,28,.05),rgba(24,31,28,.86)),linear-gradient(135deg,#9b9e8b,#be875f 45%,#243d3b); }
       .kicker { font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; }
       .story h3 { margin: 12px 0; font-size: 2rem; font-weight: 500; line-height: 1.05; }
@@ -142,7 +145,7 @@
       <section id="notas" class="shell">
         <div class="section-head"><div><p class="eyebrow" data-es="Perspectivas" data-en="Perspectives">Perspectivas</p><h2 data-es="Notas para mirar dos veces." data-en="Notes worth a second look.">Notas para mirar dos veces.</h2></div><p class="section-note" data-es="No tengo la verdad absoluta. Estas son observaciones, comparaciones y preguntas que sigo explorando." data-en="I do not have absolute answers. These are observations, comparisons and questions I keep exploring.">No tengo la verdad absoluta. Estas son observaciones, comparaciones y preguntas que sigo explorando.</p></div>
         <div class="story-grid">
-          <article class="story"><span class="kicker" data-es="Ensayo destacado" data-en="Featured essay">Ensayo destacado</span><div><h3 data-es="¿El turismo está cambiando las ciudades que amamos?" data-en="Is tourism changing the cities we love?">¿El turismo está cambiando las ciudades que amamos?</h3><p data-es="Una pregunta incómoda desde Nueva York, Barcelona y Bogotá." data-en="An uncomfortable question from New York, Barcelona and Bogotá.">Una pregunta incómoda desde Nueva York, Barcelona y Bogotá.</p></div></article>
+          <a class="story story-link" href="notas/viajamos-para-descubrir.html"><span class="kicker" data-es="Ensayo destacado" data-en="Featured essay">Ensayo destacado</span><div><h3 data-es="¿Viajamos para descubrir o para confirmar lo que ya vimos?" data-en="Do we travel to discover or to confirm what we have already seen?">¿Viajamos para descubrir o para confirmar lo que ya vimos?</h3><p data-es="Una reflexión desde Nueva York, Seúl y Bogotá." data-en="A reflection from New York, Seoul and Bogotá.">Una reflexión desde Nueva York, Seúl y Bogotá.</p></div></a>
           <article class="story"><span class="kicker" data-es="Comparación" data-en="Comparison">Comparación</span><div><h3 data-es="Tokio y Europa: dos maneras de compartir una ciudad" data-en="Tokyo and Europe: two ways to share a city">Tokio y Europa: dos maneras de compartir una ciudad</h3><p data-es="Orden, privacidad y vida pública." data-en="Order, privacy and public life.">Orden, privacidad y vida pública.</p></div></article>
           <article class="story"><span class="kicker" data-es="Idea" data-en="Idea">Idea</span><div><h3 data-es="Viajar no siempre abre la mente" data-en="Travel does not always broaden the mind">Viajar no siempre abre la mente</h3><p data-es="Lo que importa no es llegar, sino aprender a observar." data-en="What matters is not arriving, but learning to observe.">Lo que importa no es llegar, sino aprender a observar.</p></div></article>
         </div>
