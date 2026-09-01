@@ -36,14 +36,16 @@
       h1, h2, h3, blockquote { font-family: var(--serif); }
       h1 { max-width: 720px; margin: 0; font-size: clamp(4rem, 8vw, 7.4rem); font-weight: 500; letter-spacing: -.055em; line-height: .9; }
       .hero-copy { max-width: 580px; margin: 30px 0 34px; color: var(--muted); font-size: 1.13rem; }
+      .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; }
       .button { display: inline-flex; align-items: center; gap: 14px; padding: 13px 18px; border-bottom: 1px solid currentColor; color: var(--ink); text-decoration: none; font-weight: 600; }
+      .button-secondary { border: 1px solid var(--ink); }
       .collage { position: relative; min-height: 510px; overflow: hidden; }
       .photo { position: absolute; display: grid; place-items: end start; overflow: hidden; padding: 20px; color: white; border: 10px solid #faf7ef; box-shadow: 0 22px 60px rgba(45,40,30,.18); font-family: var(--serif); font-size: 1.2rem; }
       .photo::before { content: ""; position: absolute; inset: 0; background: linear-gradient(transparent 40%, rgba(0,0,0,.58)); }
       .photo span { position: relative; }
-      .photo-one { inset: 20px 42px 92px 72px; transform: rotate(2.5deg); background: url("images/tokyo-tower.jpg") center 44% / cover; }
+      .photo-one { inset: 10px 26px 68px 55px; transform: rotate(2.5deg); background: url("images/tokyo-tower.jpg") center 44% / cover; }
       .photo-one span { align-self: start; }
-      .photo-two { width: 190px; height: 235px; right: -16px; bottom: 10px; transform: rotate(-5deg); background-image: linear-gradient(transparent 52%, rgba(0,0,0,.32)), url("images/new-york-night.jpg"); background-size: cover; background-position: center; }
+      .photo-two { width: 165px; height: 205px; right: -8px; bottom: 10px; padding: 16px; font-size: 1rem; transform: rotate(-5deg); background-image: linear-gradient(transparent 52%, rgba(0,0,0,.32)), url("images/new-york-night.jpg"); background-size: cover; background-position: center; }
       .photo-three { z-index: 1; width: 155px; height: 180px; left: 0; bottom: 4px; transform: rotate(5deg); background: linear-gradient(145deg,#9d91ac,#536c73 52%,#c69772); }
       .photo-three::after { content: "+"; position: absolute; inset: 50% auto auto 50%; transform: translate(-50%,-60%); font: 300 3.5rem var(--sans); color: rgba(255,255,255,.65); }
       .tape { position: absolute; z-index: 2; width: 94px; height: 28px; top: 5px; left: 42%; transform: rotate(-8deg); background: rgba(221,207,166,.8); }
@@ -67,6 +69,12 @@
       .kicker { font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; }
       .story h3 { margin: 12px 0; font-size: 2rem; font-weight: 500; line-height: 1.05; }
       .story p { margin: 0; opacity: .78; }
+      .work { background: var(--paper-deep); }
+      .offer-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; border: 1px solid var(--line); background: var(--line); }
+      .offer-item { min-height: 240px; padding: 28px; background: var(--paper); }
+      .offer-number { display: block; margin-bottom: 54px; color: var(--accent); font: 500 1rem var(--serif); }
+      .offer-item h3 { margin: 0 0 12px; font-size: 1.7rem; font-weight: 500; }
+      .offer-item p { margin: 0; color: var(--muted); }
       .exploring { background: var(--paper-deep); }
       .explore-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
       .explore-item { min-height: 230px; padding: 28px; background: var(--paper-deep); }
@@ -103,6 +111,14 @@
       .signup { display: flex; border-bottom: 1px solid var(--ink); }
       .signup input { width: 100%; padding: 14px 0; border: 0; outline: 0; background: transparent; font: 1rem var(--sans); }
       .signup button { border: 0; background: transparent; font: 600 1rem var(--sans); cursor: pointer; }
+      .collaborate { padding: 100px 0; color: #f0ecdf; background: var(--night); }
+      .collaborate-layout { display: grid; grid-template-columns: 1.2fr .8fr; gap: 70px; align-items: end; }
+      .collaborate h2 { max-width: 720px; }
+      .collaborate-copy { margin: 0 0 28px; color: #b9bcaf; }
+      .collaborate-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+      .collaborate-link { display: inline-flex; min-height: 46px; align-items: center; padding: 11px 17px; border: 1px solid rgba(240,236,223,.7); color: #f0ecdf; text-decoration: none; font-weight: 600; }
+      .collaborate-link-primary { color: var(--night); background: #f0ecdf; }
+      .collaborate-link:focus-visible { outline: 3px solid #d7a646; outline-offset: 4px; }
       footer { display: grid; gap: 26px; padding: 46px 0 55px; color: var(--muted); font-size: .85rem; }
       .footer-block { display: grid; gap: 5px; }
       .footer-label { margin: 0; color: var(--accent); font-size: .7rem; font-weight: 600; letter-spacing: .13em; text-transform: uppercase; }
@@ -115,10 +131,10 @@
       .footer-copy { padding-top: 22px; border-top: 1px solid var(--line); }
       @media (max-width: 850px) {
         .nav-links a { display: none; }
-        .hero, .music-layout, .newsletter-layout { grid-template-columns: 1fr; }
+        .hero, .music-layout, .newsletter-layout, .collaborate-layout { grid-template-columns: 1fr; }
         .hero { gap: 20px; padding-top: 70px; }
         .collage { min-height: 430px; }
-        .story-grid, .places-row { grid-template-columns: 1fr; }
+        .story-grid, .places-row, .offer-grid { grid-template-columns: 1fr; }
         .story:first-child { min-height: 420px; }
         .explore-grid { grid-template-columns: 1fr 1fr; }
         .section-head { display: block; }
@@ -129,6 +145,8 @@
         h1 { font-size: 3.8rem; }
         .stats { grid-template-columns: 1fr 1fr; }
         .explore-grid { grid-template-columns: 1fr; }
+        .hero-actions, .collaborate-actions { align-items: stretch; flex-direction: column; }
+        .hero-actions .button, .collaborate-link { justify-content: center; }
         section { padding: 80px 0; }
       }
     </style>
@@ -139,6 +157,7 @@
         <a class="brand" href="#inicio">Carlos Claros</a>
         <div class="nav-links">
           <a href="#notas" data-es="Notas" data-en="Notes">Notas</a>
+          <a href="#trabajo" data-es="Trabajo" data-en="Work">Trabajo</a>
           <a href="#lugares" data-es="Lugares" data-en="Places">Lugares</a>
           <a href="#musica" data-es="Música" data-en="Music">Música</a>
           <a href="#sobre-mi" data-es="Sobre mí" data-en="About">Sobre mí</a>
@@ -152,7 +171,7 @@
           <p class="eyebrow" data-es="Cuaderno digital · Bogotá y el mundo" data-en="Digital notebook · Bogotá and the world">Cuaderno digital · Bogotá y el mundo</p>
           <h1 data-es="Intento entender el mundo." data-en="Trying to understand the world.">Intento entender el mundo.</h1>
           <p class="hero-copy" data-es="Viajo, observo, escucho y pienso. Este es mi espacio para conectar lugares, música, arte, diseño e ideas." data-en="I travel, observe, listen and think. This is my space to connect places, music, art, design and ideas.">Viajo, observo, escucho y pienso. Este es mi espacio para conectar lugares, música, arte, diseño e ideas.</p>
-          <a class="button" href="#notas"><span data-es="Explorar el cuaderno" data-en="Explore the notebook">Explorar el cuaderno</span> →</a>
+          <div class="hero-actions"><a class="button" href="#notas"><span data-es="Explorar el cuaderno" data-en="Explore the notebook">Explorar el cuaderno</span> →</a><a class="button button-secondary" href="#colaborar" data-es="Trabajemos juntos" data-en="Let’s work together">Trabajemos juntos</a></div>
         </div>
         <div class="collage" aria-label="Collage de viajes"><span class="tape"></span><div class="photo photo-one" role="img" aria-label="Tokyo Tower iluminada de noche"><span>Tokyo, 2025</span></div><div class="photo photo-two" role="img" aria-label="Carlos contemplando el skyline de Nueva York en 2026"><span>New York, 2026</span></div><div class="photo photo-three" role="img" aria-label="Espacio reservado para una foto de Seúl en 2027"><span>Seoul, 2027</span></div></div>
       </div>
@@ -168,6 +187,16 @@
           <a class="story story-link" href="notas/viajamos-para-descubrir.html"><span class="kicker" data-es="Ensayo destacado" data-en="Featured essay">Ensayo destacado</span><div><h3 data-es="¿Viajamos para descubrir o para confirmar lo que ya vimos?" data-en="Do we travel to discover or to confirm what we have already seen?">¿Viajamos para descubrir o para confirmar lo que ya vimos?</h3><p data-es="Una reflexión desde Nueva York, Seúl y Bogotá." data-en="A reflection from New York, Seoul and Bogotá.">Una reflexión desde Nueva York, Seúl y Bogotá.</p></div></a>
           <a class="story story-link" href="notas/tokio-estambul.html"><span class="kicker" data-es="Comparación" data-en="Comparison">Comparación</span><div><h3 data-es="Tokio y Estambul: dos formas de habitar la multitud" data-en="Tokyo and Istanbul: two ways of inhabiting a crowd">Tokio y Estambul: dos formas de habitar la multitud</h3><p data-es="Silencio, improvisación y reglas invisibles." data-en="Silence, improvisation and invisible rules.">Silencio, improvisación y reglas invisibles.</p></div></a>
           <a class="story story-link" href="notas/viajar-te-pone-en-tu-lugar.html"><span class="kicker" data-es="Idea" data-en="Idea">Idea</span><div><h3 data-es="Viajar también te pone en tu lugar" data-en="Travel also puts you in your place">Viajar también te pone en tu lugar</h3><p data-es="Conocer el mundo también es reconocer el privilegio de poder recorrerlo." data-en="Seeing the world also means recognizing the privilege of being able to travel through it.">Conocer el mundo también es reconocer el privilegio de poder recorrerlo.</p></div></a>
+        </div>
+      </section>
+      <section id="trabajo" class="work">
+        <div class="shell">
+          <div class="section-head"><div><p class="eyebrow" data-es="Cómo puedo aportar" data-en="How I can contribute">Cómo puedo aportar</p><h2 data-es="Una mirada propia puesta al servicio de una idea." data-en="A distinct perspective in service of an idea.">Una mirada propia puesta al servicio de una idea.</h2></div><p class="section-note" data-es="Tres formas de convertir la observación, la escritura y las preguntas en algo que pueda compartirse." data-en="Three ways to turn observation, writing, and questions into something worth sharing.">Tres formas de convertir la observación, la escritura y las preguntas en algo que pueda compartirse.</p></div>
+          <div class="offer-grid">
+            <article class="offer-item"><span class="offer-number">01</span><h3 data-es="Escritura editorial" data-en="Editorial writing">Escritura editorial</h3><p data-es="Ensayos, crónicas y piezas que convierten una experiencia en una historia con perspectiva." data-en="Essays, chronicles, and pieces that turn an experience into a story with perspective.">Ensayos, crónicas y piezas que convierten una experiencia en una historia con perspectiva.</p></article>
+            <article class="offer-item"><span class="offer-number">02</span><h3 data-es="Investigación cultural" data-en="Cultural research">Investigación cultural</h3><p data-es="Observación de ciudades, hábitos y contextos para encontrar preguntas y conexiones relevantes." data-en="Observing cities, habits, and contexts to uncover relevant questions and connections.">Observación de ciudades, hábitos y contextos para encontrar preguntas y conexiones relevantes.</p></article>
+            <article class="offer-item"><span class="offer-number">03</span><h3 data-es="Narrativa para proyectos" data-en="Storytelling for projects">Narrativa para proyectos</h3><p data-es="Conceptos y textos para medios, iniciativas culturales y organizaciones con algo significativo que contar." data-en="Concepts and writing for media, cultural initiatives, and organizations with something meaningful to tell.">Conceptos y textos para medios, iniciativas culturales y organizaciones con algo significativo que contar.</p></article>
+          </div>
         </div>
       </section>
       <section class="exploring">
@@ -191,6 +220,7 @@
       <section id="musica" class="music"><div class="shell music-layout"><a class="record" href="https://open.spotify.com/artist/26WKgv73kRHD0gEDKD1i8j" target="_blank" rel="noreferrer" aria-label="Escuchar Keinemusik en Spotify"><span class="record-label" aria-hidden="true"><img src="images/keinemusik-peace.png" alt=""></span></a><div><p class="eyebrow" data-es="La banda sonora" data-en="The soundtrack">La banda sonora</p><h2 data-es="Música para acompañar ideas." data-en="Music to accompany ideas.">Música para acompañar ideas.</h2><p data-es="Canciones, álbumes y conciertos que conecto con ciudades, temporadas y recuerdos." data-en="Songs, albums and concerts I connect with cities, seasons and memories.">Canciones, álbumes y conciertos que conecto con ciudades, temporadas y recuerdos.</p><div class="track-list"><a class="track" href="https://open.spotify.com/track/7sXDYdXmR2PnafjkpfdCYv" target="_blank" rel="noreferrer" aria-label="Escuchar Experience de Ludovico Einaudi en Spotify"><span data-es="Experience — Ludovico Einaudi" data-en="Experience — Ludovico Einaudi">Experience — Ludovico Einaudi</span><span>5:15 ↗</span></a><a class="track" href="https://open.spotify.com/track/70ofkwt6aIb4bPQ51OQMQO" target="_blank" rel="noreferrer" aria-label="Escuchar More Love de Rampa en Spotify"><span data-es="More Love — Rampa" data-en="More Love — Rampa">More Love — Rampa</span><span>6:11 ↗</span></a><div class="track"><span data-es="Descubrimientos del mes" data-en="Discoveries of the month">Descubrimientos del mes</span><span>41 min</span></div></div></div></div></section>
       <section id="sobre-mi" class="shell principle"><p class="eyebrow" data-es="Un principio" data-en="A principle">Un principio</p><blockquote data-es="“Viajar no es acumular destinos, sino aprender a mirar de nuevo.”" data-en="“Travel is not about collecting destinations, but learning to see anew.”">“Viajar no es acumular destinos, sino aprender a mirar de nuevo.”</blockquote><p data-es="Soy Carlos Claros. Observo, escucho y escribo sobre los lugares, sonidos e ideas que transforman mi manera de entender el mundo." data-en="I’m Carlos Claros. I observe, listen, and write about the places, sounds, and ideas that transform how I understand the world.">Soy Carlos Claros. Observo, escucho y escribo sobre los lugares, sonidos e ideas que transforman mi manera de entender el mundo.</p></section>
       <section class="newsletter"><div class="shell newsletter-layout"><div><p class="eyebrow" data-es="Una nota al mes" data-en="One note a month">Una nota al mes</p><h2 data-es="Cosas que me hicieron pensar." data-en="Things that made me think.">Cosas que me hicieron pensar.</h2></div><form class="signup" onsubmit="event.preventDefault(); this.querySelector('button').textContent = document.documentElement.lang === 'es' ? 'Próximamente' : 'Coming soon';"><input type="email" aria-label="Correo electrónico" placeholder="tu@email.com"><button type="submit" data-es="Suscribirme" data-en="Subscribe">Suscribirme</button></form></div></section>
+      <section id="colaborar" class="collaborate"><div class="shell collaborate-layout"><div><p class="eyebrow" data-es="Trabajemos juntos" data-en="Let’s work together">Trabajemos juntos</p><h2 data-es="¿Tienes una historia, un lugar o una pregunta que valga la pena explorar?" data-en="Do you have a story, a place, or a question worth exploring?">¿Tienes una historia, un lugar o una pregunta que valga la pena explorar?</h2></div><div><p class="collaborate-copy" data-es="Estoy abierto a colaboraciones editoriales, proyectos culturales y oportunidades donde la observación, la escritura y las ideas puedan convertirse en algo valioso." data-en="I’m open to editorial collaborations, cultural projects, and opportunities where observation, writing, and ideas can become something valuable.">Estoy abierto a colaboraciones editoriales, proyectos culturales y oportunidades donde la observación, la escritura y las ideas puedan convertirse en algo valioso.</p><div class="collaborate-actions"><a class="collaborate-link collaborate-link-primary" href="mailto:cpissoclaros@gmail.com" data-es="Escríbeme por correo →" data-en="Email me →">Escríbeme por correo →</a><a class="collaborate-link" href="https://www.instagram.com/carlosclaros71/" target="_blank" rel="noreferrer" data-es="Sígueme en Instagram ↗" data-en="Follow me on Instagram ↗">Sígueme en Instagram ↗</a></div></div></div></section>
     </main>
     <footer class="shell">
       <div class="footer-block"><p class="footer-label" data-es="Contacto" data-en="Contact">Contacto</p><a class="footer-link" href="mailto:cpissoclaros@gmail.com">cpissoclaros@gmail.com</a></div>
